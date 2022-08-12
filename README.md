@@ -44,5 +44,6 @@ await cliGhostwriter({
   command: "pnpm create quasar",
   answersMap,
   endingMarker: "Enjoy! - Quasar Team",
+  // enableLogs: true
 });
 ```
