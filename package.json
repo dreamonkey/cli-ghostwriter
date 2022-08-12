@@ -2,7 +2,6 @@
   "name": "@dreamonkey/cli-ghostwriter",
   "version": "0.1.0",
   "repository": "https://github.com/dreamonkey/cli-ghostwriter",
-  "private": true,
   "license": "MIT",
   "type": "module",
   "packageManager": "pnpm@7.5.0",
