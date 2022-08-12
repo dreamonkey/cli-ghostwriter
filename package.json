@@ -1,0 +1,40 @@
+{
+  "name": "@dreamonkey/cli-ghostwriter",
+  "version": "0.1.0",
+  "repository": "https://github.com/dreamonkey/cli-ghostwriter",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@7.5.0",
+  "author": "Dreamonkey Srl <info@dreamonkey.com> (https://dreamonkey.com)",
+  "contributors": [
+    "Paolo Caleffi <p.caleffi@dreamonkey.com>"
+  ],
+  "description": "Execute a command providing a preset of question-answer pairs, the package will fill in the answers for you",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.vue ./ --fix --report-unused-disable-directives",
+    "format": "prettier --write \"**/*.{json,md,graphql,vue,js,ts}\" --ignore-path .gitignore",
+    "test": "echo \"See package.json => scripts for available tests.\" && exit 0",
+    "preinstall": "npx only-allow pnpm",
+    "build": "rimraf dist && tsc --declaration",
+    "deploy": "pnpm build && pnpm publish --tag latest"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=7.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
