@@ -1,4 +1,4 @@
-import { spawn } from "node:child_process";
+import { spawn, SpawnOptions } from "node:child_process";
 
 export const ACCEPT_DEFAULT = "ACCEPT_DEFAULT";
 export const ENTER_KEY = "\n";
@@ -7,7 +7,7 @@ export const WHITESPACE_KEY = " ";
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Deprecated_octal#octal_escape_sequences
 export const DOWN_KEY = "\u001b[B";
 
-export interface CliGhostwriterParams {
+export interface CliGhostwriterParams extends SpawnOptions {
   command: string;
   answersMap: Record<string, string | undefined>;
   endingMarker: string;
@@ -19,12 +19,13 @@ export function cliGhostwriter({
   answersMap,
   endingMarker,
   enableLogs,
+  ...options
 }: CliGhostwriterParams) {
   enableLogs = enableLogs ?? false;
 
   return new Promise<void>((resolve, reject) => {
     const childProcess = spawn(command, {
-      cwd: process.cwd(),
+      ...options,
       stdio: "pipe",
       shell: true,
     });
@@ -61,7 +62,7 @@ export function cliGhostwriter({
       console.log();
 
       if (code) {
-        console.log(` Creation FAILED...`);
+        console.log(` Execution FAILED...`);
         console.log();
         reject();
       } else {
