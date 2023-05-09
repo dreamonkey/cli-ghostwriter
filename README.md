@@ -17,7 +17,7 @@ $ pnpm install @dreamonkey/cli-ghostwriter
 ```js
 import {
   ACCEPT_DEFAULT,
-  cliCreate,
+  cliGhostwriter,
   DOWN_KEY,
   WHITESPACE_KEY,
 } from "@dreamonkey/cli-ghostwriter";
